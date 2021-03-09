@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimguizmo.a  CMakeFiles/imguizmo.dir/home/yzhou162/preceputal-smi/libigl/external/imguizmo/ImGuizmo.cpp.o
+/usr/bin/ranlib libimguizmo.a
