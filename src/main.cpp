@@ -115,22 +115,30 @@ int main(int argc, char *argv[])
     double avg_edge_len = igl::avg_edge_length(V_cage, F_cage);
     //double avg_edge_len = igl::avg_edge_length(V_mesh, F_mesh);
 
-    for(int i = 0; i < num_vertices_cage; i++){
-        double seed = (double)rand() / RAND_MAX;
-        if (seed < 0.2){
-            double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
-            double phi = 2 * ((double)rand() / RAND_MAX);
+    // for(int i = 0; i < num_vertices_cage; i++){
+    //     double seed = (double)rand() / RAND_MAX;
+    //     if (seed < 0.2){
+    //         double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
+    //         double phi = 2 * ((double)rand() / RAND_MAX);
 
-            Vector3d random_tranlate = 0.1 * avg_edge_len * Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
-            V_cage_deformed.row(i) += random_tranlate;
-        }
-    }
-    cout << "so far so good" << endl;
+    //         Vector3d random_tranlate = 0.5 * avg_edge_len * Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
+    //         V_cage_deformed.row(i) += random_tranlate;
+    //     }
+    // }
+
+    int i = rand() % num_vertices_cage;
+
+    double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
+    double phi = 2 * ((double)rand() / RAND_MAX);
+
+    Vector3d random_tranlate = 2 * avg_edge_len * Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
+    V_cage_deformed.row(i) += random_tranlate;
+
 
     mVCoord_controller.SetDeformedCage(V_cage_deformed);
     V_mesh_deformed = mVCoord_controller.MVInterpolate();
 
-   igl::writeOBJ("../../testobj.obj", V_mesh_deformed, F_mesh);
+    igl::writeOBJ("../../testobj.obj", V_mesh_deformed, F_mesh);
 }
 
 
