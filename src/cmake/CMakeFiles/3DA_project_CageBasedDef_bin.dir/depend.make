@@ -932,11 +932,6 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputa
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/glad/include/KHR/khrplatform.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/glad/include/glad/glad.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/glfw/include/GLFW/glfw3.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/imgui/backends/imgui_impl_glfw.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/imgui/backends/imgui_impl_opengl3.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/imgui/imconfig.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/imgui/imgui.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/external/libigl-imgui/imgui_fonts_droid_sans.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/EPS.cpp
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/EPS.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/FileEncoding.h
@@ -1048,10 +1043,6 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputa
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/Viewer.cpp
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/Viewer.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/ViewerPlugin.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiHelpers.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiMenu.cpp
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiMenu.h
-CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiTraits.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/load_shader.cpp
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/load_shader.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/print_program_info_log.cpp

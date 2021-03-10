@@ -933,11 +933,6 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o
  /home/yzhou162/preceputal-smi/libigl/external/glad/include/KHR/khrplatform.h
  /home/yzhou162/preceputal-smi/libigl/external/glad/include/glad/glad.h
  /home/yzhou162/preceputal-smi/libigl/external/glfw/include/GLFW/glfw3.h
- /home/yzhou162/preceputal-smi/libigl/external/imgui/backends/imgui_impl_glfw.h
- /home/yzhou162/preceputal-smi/libigl/external/imgui/backends/imgui_impl_opengl3.h
- /home/yzhou162/preceputal-smi/libigl/external/imgui/imconfig.h
- /home/yzhou162/preceputal-smi/libigl/external/imgui/imgui.h
- /home/yzhou162/preceputal-smi/libigl/external/libigl-imgui/imgui_fonts_droid_sans.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/EPS.cpp
  /home/yzhou162/preceputal-smi/libigl/include/igl/EPS.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/FileEncoding.h
@@ -1049,10 +1044,6 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o
  /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/Viewer.cpp
  /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/Viewer.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/ViewerPlugin.h
- /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiHelpers.h
- /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiMenu.cpp
- /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiMenu.h
- /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/glfw/imgui/ImGuiTraits.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/load_shader.cpp
  /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/load_shader.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/opengl/print_program_info_log.cpp
