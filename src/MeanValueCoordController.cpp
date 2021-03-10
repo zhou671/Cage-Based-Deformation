@@ -37,7 +37,6 @@ double custom_determinent(Matrix3d M){
     return a1 + a2 + a3 -  b1 - b2 - b3;
 }
 
-
 void MeanValueCoordController::ComputeMVWeights() {
     mV_weights = MatrixXd::Zero(num_vertices_mesh, num_vertices_cage);
     VectorXd vector_D;

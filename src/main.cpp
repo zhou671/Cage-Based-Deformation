@@ -6,6 +6,7 @@
 //
 
 #include <stdio.h>
+#include <cstdlib>
 #define DIM_X 0
 #define DIM_Y 1
 #define DIM_Z 2
@@ -27,12 +28,11 @@
 #include <random>
 #include "CageGenerator.hpp"
 #include <igl/opengl/glfw/Viewer.h>
-
+#include <igl/avg_edge_length.h>
 
 using namespace std;
 using namespace Eigen;
 using namespace igl::opengl::glfw;
-
 
 string mesh_file_name = "../../Horse_2.obj";
 
@@ -40,6 +40,7 @@ float sparseness_cage = 0.5; // For automatic cage generation : CHANGE THIS for 
 
 int main(int argc, char *argv[])
 {
+    srand(time(NULL));
     // LOAD MESHES
     MatrixXd V_mesh,V_cage;
     MatrixXi F_mesh,F_cage;
@@ -98,26 +99,38 @@ int main(int argc, char *argv[])
     mVCoord_controller.SetDeformedCage(V_cage_deformed);
         
     // Wave deformation
-    int wave_index_point;         
-
-    wave_index_point = rand() % num_vertices_cage;
+    // int wave_index_point;
+    // wave_index_point = rand() % num_vertices_cage;
         
-    float t = 0.5;
-    if (t > 1.){
-        V_cage_deformed.row(wave_index_point) = V_cage.row(wave_index_point);
+    // float t = 0.5;
+    // if (t > 1.) {
+    //     V_cage_deformed.row(wave_index_point) = V_cage.row(wave_index_point);
+    // } else {
+    //     double ratio = 1. + sin(M_PI * t);
+    //     Vector3d original_vert = V_cage.row(wave_index_point);
+    //     Vector3d deformed_cage_vert = cage_barycenter + ratio * (original_vert - cage_barycenter);
+    //     V_cage_deformed.row(wave_index_point) = deformed_cage_vert;
+    // }
+
+    double avg_edge_len = igl::avg_edge_length(V_cage, F_cage);
+    //double avg_edge_len = igl::avg_edge_length(V_mesh, F_mesh);
+
+    for(int i = 0; i < num_vertices_cage; i++){
+        double seed = (double)rand() / RAND_MAX;
+        if (seed < 0.2){
+            double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
+            double phi = 2 * ((double)rand() / RAND_MAX);
+
+            Vector3d random_tranlate = 0.1 * avg_edge_len * Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
+            V_cage_deformed.row(i) += random_tranlate;
+        }
     }
-    else{
-        double ratio = 1. + sin(M_PI * t);
-        Vector3d original_vert = V_cage.row(wave_index_point);
-        Vector3d deformed_cage_vert =  cage_barycenter + ratio * (original_vert - cage_barycenter);
-        V_cage_deformed.row(wave_index_point) = deformed_cage_vert;
-    }
+    cout << "so far so good" << endl;
 
     mVCoord_controller.SetDeformedCage(V_cage_deformed);
     V_mesh_deformed = mVCoord_controller.MVInterpolate();
 
    igl::writeOBJ("../../testobj.obj", V_mesh_deformed, F_mesh);
-
 }
 
 

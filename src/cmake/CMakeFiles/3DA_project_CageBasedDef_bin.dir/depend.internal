@@ -952,6 +952,10 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o
  /home/yzhou162/preceputal-smi/libigl/include/igl/accumarray.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_list.cpp
  /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_list.h
+ /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_matrix.cpp
+ /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_matrix.h
+ /home/yzhou162/preceputal-smi/libigl/include/igl/avg_edge_length.cpp
+ /home/yzhou162/preceputal-smi/libigl/include/igl/avg_edge_length.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/axis_angle_to_quat.cpp
  /home/yzhou162/preceputal-smi/libigl/include/igl/axis_angle_to_quat.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/barycenter.cpp
@@ -987,6 +991,8 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o
  /home/yzhou162/preceputal-smi/libigl/include/igl/doublearea.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/edge_lengths.cpp
  /home/yzhou162/preceputal-smi/libigl/include/igl/edge_lengths.h
+ /home/yzhou162/preceputal-smi/libigl/include/igl/edges.cpp
+ /home/yzhou162/preceputal-smi/libigl/include/igl/edges.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/face_areas.cpp
  /home/yzhou162/preceputal-smi/libigl/include/igl/face_areas.h
  /home/yzhou162/preceputal-smi/libigl/include/igl/face_occurrences.cpp

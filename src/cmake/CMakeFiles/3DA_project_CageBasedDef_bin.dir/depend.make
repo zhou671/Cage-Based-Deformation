@@ -951,6 +951,10 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputa
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/accumarray.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_list.cpp
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_list.h
+CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_matrix.cpp
+CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/adjacency_matrix.h
+CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/avg_edge_length.cpp
+CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/avg_edge_length.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/axis_angle_to_quat.cpp
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/axis_angle_to_quat.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/barycenter.cpp
@@ -986,6 +990,8 @@ CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputa
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/doublearea.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/edge_lengths.cpp
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/edge_lengths.h
+CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/edges.cpp
+CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/edges.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/face_areas.cpp
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/face_areas.h
 CMakeFiles/3DA_project_CageBasedDef_bin.dir/main.cpp.o: /home/yzhou162/preceputal-smi/libigl/include/igl/face_occurrences.cpp
