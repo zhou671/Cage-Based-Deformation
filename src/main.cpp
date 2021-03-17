@@ -34,6 +34,62 @@ string mesh_file_name = "../../Horse_2.obj";
 
 float sparseness_cage = 0.5; // For automatic cage generation : CHANGE THIS for a sparser or denser cage : the larger the parameter the denser the cage
 
+void cage_deform1(MatrixXd & V_cage, const MatrixXi & F_cage, Vector3d cage_barycenter){
+    int num_vertices_cage = V_cage.rows();
+    double avg_edge_len = igl::avg_edge_length(V_cage, F_cage);
+    Vector3d dir = Vector3d(0, 0, 0);
+    double res = 0;
+    for(int i = 0; i < 15; i++){
+        double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
+        double phi = 2.0 * ((double)rand() / RAND_MAX);
+        Vector3d dir_cand = Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
+        double value = 0;
+        for(int j = 0; j < num_vertices_cage; j++){
+            Vector3d c2v = Vector3d(V_cage.row(j)) - cage_barycenter;
+            double cutoff = c2v.normalized().dot(dir_cand);
+            if (cutoff > 0.95){
+                value += c2v.dot(dir_cand);
+            }
+        }
+        if (value > res){
+            res = value;
+            dir = dir_cand;
+        }
+    }
+
+    double theta = acos(1.0 -  0.01 * (double)rand() / RAND_MAX);
+    double phi = 2.0 * ((double)rand() / RAND_MAX);
+    Vector3d dir_cand = Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
+    Matrix3d R;
+    R = Quaterniond().setFromTwoVectors(Vector3d(0,1,0),dir_cand);
+
+    for(int i = 0; i < num_vertices_cage; i++){
+        Vector3d c2v = Vector3d(V_cage.row(i)) - cage_barycenter;
+        double cutoff = c2v.normalized().dot(dir);
+        if (cutoff > 0.95){
+            V_cage.row(i) = R * c2v + cage_barycenter;
+        }
+    }
+}
+
+void cage_deform2(MatrixXd & V_cage, const MatrixXi & F_cage, Vector3d cage_barycenter){
+    int num_vertices_cage = V_cage.rows();
+    double avg_edge_len = igl::avg_edge_length(V_cage, F_cage);
+    int seed = rand() % num_vertices_cage;
+    double theta = acos(1.0 -  0.01 * (double)rand() / RAND_MAX);
+    double phi = 2.0 * ((double)rand() / RAND_MAX);
+    Vector3d dir_cand = Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
+    Matrix3d R;
+    R = Quaterniond().setFromTwoVectors(Vector3d(0,1,0),dir_cand);
+    for(int i = 0; i < num_vertices_cage; i++){
+        Vector3d c2v = Vector3d(V_cage.row(i)) - cage_barycenter;
+        double d = Vector3d(V_cage.row(i) - V_cage.row(seed)).norm();
+        if (d < 2 * avg_edge_len){
+            V_cage.row(i) = R * c2v + cage_barycenter;
+        }
+    }
+}
+
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
@@ -93,86 +149,12 @@ int main(int argc, char *argv[])
     V_mesh_deformed = mVCoord_controller.MVInterpolate();
     MatrixXd V_cage_deformed = V_cage;
     mVCoord_controller.SetDeformedCage(V_cage_deformed);
-        
-    // Wave deformation
-    // int wave_index_point;
-    // wave_index_point = rand() % num_vertices_cage;
-        
-    // float t = 0.5;
-    // if (t > 1.) {
-    //     V_cage_deformed.row(wave_index_point) = V_cage.row(wave_index_point);
-    // } else {
-    //     double ratio = 1. + sin(M_PI * t);
-    //     Vector3d original_vert = V_cage.row(wave_index_point);
-    //     Vector3d deformed_cage_vert = cage_barycenter + ratio * (original_vert - cage_barycenter);
-    //     V_cage_deformed.row(wave_index_point) = deformed_cage_vert;
-    // }
 
-    double avg_edge_len = igl::avg_edge_length(V_cage, F_cage);
-    //double avg_edge_len = igl::avg_edge_length(V_mesh, F_mesh);
+    cage_deform1(V_cage, F_cage, cage_barycenter);
+    //cage_deform2(V_cage, F_cage, cage_barycenter);
 
-    // for(int i = 0; i < num_vertices_cage; i++){
-    //     double seed = (double)rand() / RAND_MAX;
-    //     if (seed < 0.2){
-    //         double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
-    //         double phi = 2 * ((double)rand() / RAND_MAX);
-
-    //         Vector3d random_tranlate = 0.5 * avg_edge_len * Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
-    //         V_cage_deformed.row(i) += random_tranlate;
-    //     }
-    // }
-
-    // int i = rand() % num_vertices_cage;
-
-    // double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
-    // double phi = 2 * ((double)rand() / RAND_MAX);
-
-    // Vector3d random_tranlate = avg_edge_len * Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
-    // V_cage_deformed.row(i) += random_tranlate;
-
-
-    Vector3d dir = Vector3d(0, 0, 0);
-    double res = 0;
-    for(int i = 0; i < 15; i++){
-        double theta = acos((double)rand() / RAND_MAX * 2.0 - 1.0);
-        double phi = 2.0 * ((double)rand() / RAND_MAX);
-        Vector3d dir_cand = Vector3d(sin(theta) * cos(phi), cos(theta), sin(theta) * cos(phi));
-        double value = 0;
-        for(int j = 0; j < num_vertices_cage; j++){
-            Vector3d c2v = Vector3d(V_cage.row(j)) - cage_barycenter;
-            double cutoff = c2v.normalized().dot(dir_cand);
-            if (cutoff > 0.95){
-                value += c2v.dot(dir_cand);
-            }
-        }
-        if (value > res){
-            res = value;
-            dir = dir_cand;
-        }
-    }
-
-    double theta = acos(1.0 -  0.1 * (double)rand() / RAND_MAX);
-    double phi = 2.0 * ((double)rand() / RAND_MAX);
-    Matrix3d R;
-    R = Quaterniond().setFromTwoVectors(Vector3d(0,1,0),dir);
-    Vector3d resdir = R * dir;
-    R = Quaterniond().setFromTwoVectors(dir,resdir);
-
-    for(int i = 0; i < num_vertices_cage; i++){
-        Vector3d c2v = Vector3d(V_cage.row(i)) - cage_barycenter;
-        double cutoff = c2v.normalized().dot(dir);
-        if (cutoff > 0.95){
-            V_cage_deformed.row(i) = R * c2v + cage_barycenter;
-        }
-    }
-
-    mVCoord_controller.SetDeformedCage(V_cage_deformed);
+    mVCoord_controller.SetDeformedCage(V_cage);
     V_mesh_deformed = mVCoord_controller.MVInterpolate();
 
-    igl::writeOBJ("../../testobj.obj", V_mesh_deformed, F_mesh);
-    igl::writeOBJ("../../autocage.obj", V_cage, F_cage);
-    igl::writeOBJ("../../testcage.obj", V_cage_deformed, F_cage);
-    
+    igl::writeOBJ("../../deform1.obj", V_mesh_deformed, F_cage);    
 }
-
-
