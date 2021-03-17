@@ -150,11 +150,11 @@ int main(int argc, char *argv[])
     MatrixXd V_cage_deformed = V_cage;
     mVCoord_controller.SetDeformedCage(V_cage_deformed);
 
-    cage_deform1(V_cage, F_cage, cage_barycenter);
+    cage_deform1(V_cage_deformed, F_cage, cage_barycenter);
     //cage_deform2(V_cage, F_cage, cage_barycenter);
 
-    mVCoord_controller.SetDeformedCage(V_cage);
+    mVCoord_controller.SetDeformedCage(V_cage_deformed);
     V_mesh_deformed = mVCoord_controller.MVInterpolate();
 
-    igl::writeOBJ("../../deform1.obj", V_mesh_deformed, F_cage);    
+    igl::writeOBJ("../../deform1.obj", V_mesh_deformed, F_mesh);    
 }
